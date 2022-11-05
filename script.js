@@ -1,5 +1,9 @@
-function jumlahVolumeDuaKubus(a, b) {
-    return a * a * a + b * b * b;
+function cetakAngka(n) {
+    if(n === 0) {
+        return;
+    }
+    console.log(n);
+    cetakAngka(n-1);
 }
 
-alert(jumlahVolumeDuaKubus(8, 3));
+cetakAngka(10);
