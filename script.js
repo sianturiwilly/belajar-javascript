@@ -1,8 +1,10 @@
-var s = '';
-for(var i = 10; i > 0; i--) {
-    for(var j = 0; j < i; j++) {
-        s += '*';
+function tambah() {
+    var hasil = 0;
+    for(var i = 0; i < arguments.length; i++) {
+        hasil += arguments[i];
     }
-    s += '\n';
+    return hasil;
 }
-console.log(s);
+
+var coba = tambah(1,2,3,4);
+console.log(coba);
