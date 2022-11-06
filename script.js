@@ -22,7 +22,6 @@
 // }
 
 // Method pada array
-var arr = ['Willi', 'Sianturi', 'Nike'];
 // 1. Join
 // console.log(arr.join(' - '));
 
@@ -34,5 +33,17 @@ var arr = ['Willi', 'Sianturi', 'Nike'];
 
 // 3. Unshift & Shift
 // arr.unshift('Darwis');
-arr.shift();
+// arr.shift();
+// console.log(arr.join(' - '));
+
+// 4. Splice
+// splice(indexAwal, mauDihapusBerapa, elemenBaru1, elemenBaru2, ...)
+// arr.splice(1, 2, 'Ardilla', 'Darwis');
+// console.log(arr.join(' - '));
+
+// 5. Slice
+// slice(awal,akhir);
+var arr = ['Willi', 'Sianturi', 'Nike', 'Darwis', 'Reisa'];
+var arr2 = arr.slice(1,4);
 console.log(arr.join(' - '));
+console.log(arr2.join(' - '));
