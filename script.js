@@ -1,52 +1,30 @@
-var penumpang = [];
-var tambahPenumpang = function(namaPenumpang, penumpang) {
-    // Jika angkot kosong.
-    if(penumpang.length == 0) {
-        // Tambah penumpang di awal array.
-        penumpang.push(namaPenumpang);
-        // Kembalikan isi array & keluar dari function.
-        return penumpang;
-    } else {
-        // Telusuri seluruh kursi dari awal.
-        for(var i = 0; i < penumpang.length; i++) {
-            // Jika ada kursi kosong.
-            if(penumpang[i] == undefined) {
-                // Tambah penumpang di kursi tersebut.
-                penumpang[i] = namaPenumpang;
-                // Kembalikan isi array & keluar dari function.
-                return penumpang;
-            }
-            // Jika sudah ada nama yang sama.
-            else if(penumpang[i] == namaPenumpang) {
-                // Tampilkan pesan kesalahannya.
-                console.log(namaPenumpang + ' sudah ada di dalam angkot.');
-                // Kembalikan isi array & keluar dari function.
-                return penumpang;
-            }
-            // Jika seluruh kursi terisi.
-            else if(i == penumpang.length - 1) {
-                // Tambah penumpang di akhir array.
-                penumpang.push(namaPenumpang);
-                // Kembalikan isi array & keluar dari function.
-                return penumpang;
+// Membuat Objek Angkot
+function Angkot(sopir, trayek, penumpang, kas) {
+    this.sopir = sopir;
+    this.trayek = trayek;
+    this.penumpang = penumpang;
+    this.kas = kas;
+
+    this.penumpangNaik = function(namaPenumpang) {
+        this.penumpang.push(namaPenumpang);
+        return this.penumpang;
+    }
+
+    this.penumpangTurun = function(namaPenumpang, bayar) {
+        if(this.penumpang.length === 0) {
+            alert('Angkot masih kosong');
+            return false;
+        }
+
+        for(var i = 0; i < this.penumpang.length; i++) {
+            if(this.penumpang.length[i] == namaPenumpang) {
+                this.penumpang[i] = undefined;
+                this.kas += bayar;
+                return this.penumpang;
             }
         }
     }
 }
 
-var hapusPenumpang = function(namaPenumpang, penumpang) {
-    if(penumpang.length == 0) {
-        console.log('Angkot masih kosong.');
-        return penumpang;
-    } else {
-        for(var i = 0; i < penumpang.length; i++) {
-            if(penumpang[i] == namaPenumpang) {
-                penumpang[i] = undefined;
-            } else if(i == penumpang.length - 1) {
-                console.log(namaPenumpang + ' tidak ada di dalam angkot.');
-            }
-        }
-    }
-
-    return penumpang;
-}
+var angkot1 = new Angkot('Willi Sianturi', ['Cicaheum', 'Cibiru'], [], 0);
+var angkot2 = new Angkot('Wayne Rooney', ['Antapani', 'Ciroyom'], [], 0);
