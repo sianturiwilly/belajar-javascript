@@ -1,49 +1,52 @@
-// Manipulasi Array
+var penumpang = [];
+var tambahPenumpang = function(namaPenumpang, penumpang) {
+    // Jika angkot kosong.
+    if(penumpang.length == 0) {
+        // Tambah penumpang di awal array.
+        penumpang.push(namaPenumpang);
+        // Kembalikan isi array & keluar dari function.
+        return penumpang;
+    } else {
+        // Telusuri seluruh kursi dari awal.
+        for(var i = 0; i < penumpang.length; i++) {
+            // Jika ada kursi kosong.
+            if(penumpang[i] == undefined) {
+                // Tambah penumpang di kursi tersebut.
+                penumpang[i] = namaPenumpang;
+                // Kembalikan isi array & keluar dari function.
+                return penumpang;
+            }
+            // Jika sudah ada nama yang sama.
+            else if(penumpang[i] == namaPenumpang) {
+                // Tampilkan pesan kesalahannya.
+                console.log(namaPenumpang + ' sudah ada di dalam angkot.');
+                // Kembalikan isi array & keluar dari function.
+                return penumpang;
+            }
+            // Jika seluruh kursi terisi.
+            else if(i == penumpang.length - 1) {
+                // Tambah penumpang di akhir array.
+                penumpang.push(namaPenumpang);
+                // Kembalikan isi array & keluar dari function.
+                return penumpang;
+            }
+        }
+    }
+}
 
-// 1. Menambah isi Array
-// var arr = [];
-// arr[0] = "Willi";
-// arr[1] = 'Sianturi';
-// arr[2] = 'Nike';
-// arr[6] = 'Ardilla';
+var hapusPenumpang = function(namaPenumpang, penumpang) {
+    if(penumpang.length == 0) {
+        console.log('Angkot masih kosong.');
+        return penumpang;
+    } else {
+        for(var i = 0; i < penumpang.length; i++) {
+            if(penumpang[i] == namaPenumpang) {
+                penumpang[i] = undefined;
+            } else if(i == penumpang.length - 1) {
+                console.log(namaPenumpang + ' tidak ada di dalam angkot.');
+            }
+        }
+    }
 
-// console.log(arr);
-
-// 2. Menghapus isi Array
-// var arr = ['Willi', 'Sianturi', 'Nike'];
-// arr[1] = undefined;
-// console.log(arr);
-
-// 3. Menampilkan isi array
-// var arr = ['Willi', 'Sianturi', 'Nike'];
-
-// for(var i = 0; i < arr.length; i++) {
-//     console.log('Mahasiswa ke-' + i + ' : ' + arr[i]);
-// }
-
-// Method pada array
-// 1. Join
-// console.log(arr.join(' - '));
-
-// 2. Push & Pop
-// arr.push('Ardilla', 'Darwis');
-// arr.pop();
-// arr.pop();
-// console.log(arr.join(' - '));
-
-// 3. Unshift & Shift
-// arr.unshift('Darwis');
-// arr.shift();
-// console.log(arr.join(' - '));
-
-// 4. Splice
-// splice(indexAwal, mauDihapusBerapa, elemenBaru1, elemenBaru2, ...)
-// arr.splice(1, 2, 'Ardilla', 'Darwis');
-// console.log(arr.join(' - '));
-
-// 5. Slice
-// slice(awal,akhir);
-var arr = ['Willi', 'Sianturi', 'Nike', 'Darwis', 'Reisa'];
-var arr2 = arr.slice(1,4);
-console.log(arr.join(' - '));
-console.log(arr2.join(' - '));
+    return penumpang;
+}
